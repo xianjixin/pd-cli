@@ -21,7 +21,9 @@ module.exports = async () => {
   let gitUrl = "https://github.com/xianjixin/pd_vue_template.git";
   let cmdStr = `git clone ${gitUrl} ${projectName.name}`;
   if (isElint.isElint.toLocaleLowerCase() === "y") {
-    cmdStr = `git clone -b pd_vue_eslint https://github.com/xianjixin/pd_vue_template.git`;
+    cmdStr = `git clone -b pd_vue_eslint https://github.com/xianjixin/pd_vue_template.git ./${
+      projectName.name
+    }`;
   }
   console.log(chalk.default.white("\n start generating..."));
   let promisifyExec = promisify(exec);
